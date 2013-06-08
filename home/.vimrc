@@ -10,12 +10,10 @@
  Bundle 'gmarik/vundle'
 
  " My Bundles here:
- "
- " original repos on github
  Bundle 'tpope/vim-sensible'
  Bundle 'tpope/vim-fugitive'
  Bundle 'Lokaltog/vim-easymotion'
- " Bundle 'tpope/vim-rails.git'
+ Bundle 'goldfeld/vim-seek'
  Bundle 'chriskempson/base16-vim'
  Bundle 'kien/ctrlp.vim'
  Bundle 'tpope/vim-commentary'
@@ -26,9 +24,11 @@
  Bundle 'tsaleh/vim-matchit'
  Bundle 'xenoterracide/html.vim'
  Bundle 'sukima/xmledit'
- Bundle 'vim-scripts/VimClojure'
  Bundle 'plasticboy/vim-markdown'
  Bundle 'jinfield/vim-nginx'
+ Bundle 'jpalardy/vim-slime'
+ Bundle 'kien/rainbow_parentheses.vim'
+ Bundle 'guns/vim-clojure-static'
  " Snipmate and dependencies
  Bundle 'MarcWeber/vim-addon-mw-utils'
  Bundle 'tomtom/tlib_vim'
@@ -123,7 +123,7 @@ nmap Q <NOP> " Disable entering Ex-Mode
 set complete-=t " don't scan tags
 
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git']
+let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj']
 let g:ctrlp_dotfiles = 0
 
 let g:snipMate = {}
@@ -146,7 +146,19 @@ let g:netrw_localmkdir= "mkdir"
 let g:netrw_localrmdir= "rmdir"
 let g:vim_markdown_folding_disabled=1
 
+let g:slime_target = "tmux"
+let g:slime_no_mappings = 1
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 let mapleader=','
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeMotionSend
+nmap <leader>ss <Plug>SlimeLineSend
+
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>t <C-W>T
 vmap <Leader>y "+y
