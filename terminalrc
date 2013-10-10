@@ -22,4 +22,5 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
 CommandLoginShell=TRUE
+ScrollingLines=100000
 

@@ -1,3 +1,9 @@
-home/.vim/backup
-home/.vim/undo
+*.orig
+.*.s[a-w][a-z]
+*.un~
+Session.vim
 .netrwhist
+*~
+.vim/bundle
+.vim/plugin
+.vim/undo

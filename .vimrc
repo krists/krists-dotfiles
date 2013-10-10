@@ -1,4 +1,3 @@
- call system("mkdir -p $HOME/.vim/{backup,plugin,undo}")
  set nocompatible               " be iMproved
  filetype off                   " required!
 
@@ -22,13 +21,18 @@
  Bundle 'tpope/vim-haml'
  Bundle 'tpope/vim-surround'
  Bundle 'tsaleh/vim-matchit'
- Bundle 'xenoterracide/html.vim'
- Bundle 'sukima/xmledit'
+ Bundle 'othree/html5.vim'
+ Bundle 'othree/xml.vim'
  Bundle 'plasticboy/vim-markdown'
  Bundle 'jinfield/vim-nginx'
  Bundle 'jpalardy/vim-slime'
  Bundle 'kien/rainbow_parentheses.vim'
  Bundle 'guns/vim-clojure-static'
+ Bundle 'thoughtbot/vim-rspec'
+
+ " ZEN Code HTML
+ " Bundle 'mattn/emmet-vim'
+
  " Snipmate and dependencies
  Bundle 'MarcWeber/vim-addon-mw-utils'
  Bundle 'tomtom/tlib_vim'
@@ -74,6 +78,7 @@ set noeol
 set noswapfile
 set nobackup
 set nowritebackup
+
 if has('persistent_undo') && exists("&undodir")
   set undodir=$HOME/.vim/undo/
   set undofile
@@ -97,7 +102,7 @@ endif
 
 " Folding
 set foldmethod=indent
-set foldnestmax=3
+set foldnestmax=9
 set nofoldenable
 
 set nowrap " Do not wrap words (view)
@@ -123,7 +128,7 @@ nmap Q <NOP> " Disable entering Ex-Mode
 set complete-=t " don't scan tags
 
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj']
+let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj', 'package.json', 'Gruntfile.js']
 let g:ctrlp_dotfiles = 0
 
 let g:snipMate = {}
@@ -142,12 +147,13 @@ set listchars=tab:▶\
 set listchars+=trail:·
 set listchars+=extends:❯
 set listchars+=precedes:❮
+
+
 let g:netrw_localmkdir= "mkdir"
 let g:netrw_localrmdir= "rmdir"
-let g:vim_markdown_folding_disabled=1
+let g:netrw_quiet = 1
 
-let g:slime_target = "tmux"
-let g:slime_no_mappings = 1
+let g:vim_markdown_folding_disabled=1
 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -155,12 +161,40 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 let mapleader=','
+
+" Slime config
+let g:slime_target = "tmux"
+let g:slime_no_mappings = 1
 xmap <leader>s <Plug>SlimeRegionSend
 nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
 
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>t <C-W>T
+
+" Easy copy to system clipboard
 vmap <Leader>y "+y
+
+" Paste from system clipboard
 vmap <Leader>p "+p
 nmap <Leader>p "+p
+nmap <Leader>P "+P
+
+nmap <Leader>op o<ESC>"+p
+nmap <Leader>Op O<ESC>"+p
+
+" Easy blank line insert
+nmap <Leader><SPACE> o<ESC>
+nmap <Leader><S-SPACE> O<ESC>
+
+" Easy line removal
+nmap <Leader>d jddk
+nmap <Leader>D kddj
+
+let g:user_emmet_leader_key = '<C-z>'
+
+nmap <A-t> :call RunCurrentSpecFile()<CR>
+nmap <A-s> :call RunNearestSpec()<CR>
+nmap <A-l> :call RunLastSpec()<CR>
+nmap <A-a> :call RunAllSpecs()<CR>
+let g:rspec_command = "!rspec  --format progress --no-color {spec}"

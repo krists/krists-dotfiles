@@ -1,4 +1,5 @@
 Dotfiles
 ========
 * My confirguration files for vim, bash, git, irb, gem.
-* Easy setup with: [homesick](https://github.com/technicalpickles/homesick)
+* Dependencies: Ruby, Git
+* Run `rake -T` to see available tasks
