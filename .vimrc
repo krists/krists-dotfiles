@@ -63,6 +63,7 @@ if has("gui_running")
   set cursorline
   set cursorcolumn
 else
+  colorscheme elflord
   set t_Co=256
 endif
 
