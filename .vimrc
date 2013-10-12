@@ -29,6 +29,7 @@
  Bundle 'kien/rainbow_parentheses.vim'
  Bundle 'guns/vim-clojure-static'
  Bundle 'thoughtbot/vim-rspec'
+ Bundle 'AutoTag'
 
  " ZEN Code HTML
  " Bundle 'mattn/emmet-vim'
