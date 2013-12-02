@@ -58,13 +58,12 @@ colorscheme base16-default
 if has("gui_running")
   set guioptions-=T
   set guioptions-=m
-  set guifont=Dejavu\ Sans\ Mono
+  set guifont=Dejavu\ Sans\ Mono:h14
   set linespace=4
   set guiheadroom=0 " The number of pixels subtracted from the screen height when fitting the GUI window on the screen.
   set cursorline
   set cursorcolumn
 else
-  colorscheme elflord
   set t_Co=256
 endif
 
@@ -124,6 +123,7 @@ set equalalways " When on, all the windows are automatically made the same size 
 
 if has("autocmd")
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+  autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 endif
 
 nmap Q <NOP> " Disable entering Ex-Mode
@@ -138,7 +138,7 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby-extras'
 
 set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
-set wildignore+=coverage,coverage.data
+set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp
 
 imap jj <Esc>
 imap hh =>
@@ -200,3 +200,6 @@ nmap <A-s> :call RunNearestSpec()<CR>
 nmap <A-l> :call RunLastSpec()<CR>
 nmap <A-a> :call RunAllSpecs()<CR>
 let g:rspec_command = "!rspec  --format progress --no-color {spec}"
+
+ca Gb Gblame
+set noeb vb t_vb= " No bells

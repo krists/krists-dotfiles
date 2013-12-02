@@ -16,3 +16,5 @@ alias gg='git status -s'
 alias du='du -h'
 alias dus='du -hs'
 alias ..='cd ..'
+alias gdh='git diff HEAD'
+alias webserve="ruby -rwebrick -e'WEBrick::HTTPServer.new(:Port => 3000, :DocumentRoot => Dir.pwd).start'"

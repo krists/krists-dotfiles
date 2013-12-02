@@ -7,3 +7,7 @@ Session.vim
 .vim/bundle
 .vim/plugin
 .vim/undo
+.ruby-version
+.ruby-gemset
+tags
+.DS_Store
