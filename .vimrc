@@ -53,7 +53,6 @@
  " NOTE: comments after Bundle command are not allowed..
 
 set background=dark
-colorscheme base16-default
 
 if has("gui_running")
   set guioptions-=T
@@ -63,8 +62,10 @@ if has("gui_running")
   set guiheadroom=0 " The number of pixels subtracted from the screen height when fitting the GUI window on the screen.
   set cursorline
   set cursorcolumn
+  colorscheme base16-default
 else
   set t_Co=256
+  colorscheme smyck
 endif
 
 if has('mouse')
