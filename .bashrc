@@ -47,12 +47,14 @@ export PS1=$LIGHT_GRAY"\u@\h"'$(
     else echo "'$CYAN'"$(__git_ps1 " (%s)")
     fi)'$BLUE" \w"$GREEN": $LIGHT_GRAY"
 
+if [ -d ~/.bin ]; then
+  PATH="$HOME/.bin:$PATH"
+fi
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH="/Applications/Postgres93.app/Contents/MacOS/bin:$PATH"
-EDITOR=gvim
-export RUBY_GC_MALLOC_LIMIT=90000000
-export RUBY_FREE_MIN=200000
+if [ -f ~/.extra ]; then
+    . ~/.extra
+fi

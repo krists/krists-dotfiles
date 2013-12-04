@@ -30,6 +30,7 @@
  Bundle 'guns/vim-clojure-static'
  Bundle 'thoughtbot/vim-rspec'
  Bundle 'AutoTag'
+ Bundle 'rking/ag.vim'
 
  " ZEN Code HTML
  " Bundle 'mattn/emmet-vim'
@@ -54,19 +55,8 @@
 
 set background=dark
 
-if has("gui_running")
-  set guioptions-=T
-  set guioptions-=m
-  set guifont=Dejavu\ Sans\ Mono:h14
-  set linespace=4
-  set guiheadroom=0 " The number of pixels subtracted from the screen height when fitting the GUI window on the screen.
-  set cursorline
-  set cursorcolumn
-  colorscheme base16-default
-else
-  set t_Co=256
-  colorscheme smyck
-endif
+set t_Co=256
+colorscheme smyck
 
 if has('mouse')
   set mouse=
