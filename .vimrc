@@ -11,7 +11,6 @@
  " My Bundles here:
  Bundle 'tpope/vim-sensible'
  Bundle 'tpope/vim-fugitive'
- Bundle 'Lokaltog/vim-easymotion'
  Bundle 'goldfeld/vim-seek'
  Bundle 'chriskempson/base16-vim'
  Bundle 'kien/ctrlp.vim'
@@ -25,15 +24,9 @@
  Bundle 'othree/xml.vim'
  Bundle 'plasticboy/vim-markdown'
  Bundle 'jinfield/vim-nginx'
- Bundle 'jpalardy/vim-slime'
- Bundle 'kien/rainbow_parentheses.vim'
- Bundle 'guns/vim-clojure-static'
  Bundle 'thoughtbot/vim-rspec'
  Bundle 'AutoTag'
  Bundle 'rking/ag.vim'
-
- " ZEN Code HTML
- " Bundle 'mattn/emmet-vim'
 
  " Snipmate and dependencies
  Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -57,6 +50,8 @@ set background=dark
 
 set t_Co=256
 colorscheme smyck
+
+set synmaxcol=300 " Stop syntax coloring after column 300
 
 if has('mouse')
   set mouse=
@@ -86,7 +81,6 @@ set shiftwidth=2
 set expandtab
 
 " Line numbers
-set number
 if exists("&relativenumber")
   set relativenumber
   au BufReadPost * set relativenumber
@@ -98,10 +92,11 @@ set foldnestmax=9
 set nofoldenable
 
 set nowrap " Do not wrap words (view)
+set showbreak=↪
 set nowrapscan
 
 if !&scrolloff
-  set scrolloff=1
+  set scrolloff=3
 endif
 if !&sidescrolloff
   set sidescrolloff=5
@@ -133,6 +128,8 @@ set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp
 
 imap jj <Esc>
 imap hh =>
+noremap ; :
+
 
 " Whitespace Wizardry
 set list
@@ -148,19 +145,7 @@ let g:netrw_quiet = 1
 
 let g:vim_markdown_folding_disabled=1
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 let mapleader=','
-
-" Slime config
-let g:slime_target = "tmux"
-let g:slime_no_mappings = 1
-xmap <leader>s <Plug>SlimeRegionSend
-nmap <leader>s <Plug>SlimeMotionSend
-nmap <leader>ss <Plug>SlimeLineSend
 
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 map <Leader>t <C-W>T
@@ -173,6 +158,9 @@ vmap <Leader>p "+p
 nmap <Leader>p "+p
 nmap <Leader>P "+P
 
+nmap <Leader>sd cs'"
+nmap <Leader>ss cs"'
+
 nmap <Leader>op o<ESC>"+p
 nmap <Leader>Op O<ESC>"+p
 
@@ -183,8 +171,6 @@ nmap <Leader><S-SPACE> O<ESC>
 " Easy line removal
 nmap <Leader>d jddk
 nmap <Leader>D kddj
-
-let g:user_emmet_leader_key = '<C-z>'
 
 nmap <A-t> :call RunCurrentSpecFile()<CR>
 nmap <A-s> :call RunNearestSpec()<CR>

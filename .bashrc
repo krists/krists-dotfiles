@@ -47,6 +47,10 @@ export PS1=$LIGHT_GRAY"\u@\h"'$(
     else echo "'$CYAN'"$(__git_ps1 " (%s)")
     fi)'$BLUE" \w"$GREEN": $LIGHT_GRAY"
 
+if [ -f ~/.exports ]; then
+    . ~/.exports
+fi
+
 if [ -d ~/.bin ]; then
   PATH="$HOME/.bin:$PATH"
 fi
@@ -58,3 +62,5 @@ fi
 if [ -f ~/.extra ]; then
     . ~/.extra
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
