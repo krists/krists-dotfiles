@@ -62,5 +62,3 @@ fi
 if [ -f ~/.extra ]; then
     . ~/.extra
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
