@@ -18,6 +18,7 @@
  Bundle 'tpope/vim-endwise'
  Bundle 'kchmck/vim-coffee-script'
  Bundle 'tpope/vim-haml'
+ Bundle 'digitaltoad/vim-jade'
  Bundle 'tpope/vim-surround'
  Bundle 'tsaleh/vim-matchit'
  Bundle 'othree/html5.vim'
@@ -27,6 +28,10 @@
  Bundle 'thoughtbot/vim-rspec'
  Bundle 'AutoTag'
  Bundle 'rking/ag.vim'
+ Bundle 'tpope/vim-fireplace.git'
+
+ Bundle 'slim-template/vim-slim.git'
+ Bundle 'vim-jp/cpp-vim'
 
  " Snipmate and dependencies
  Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -109,14 +114,17 @@ set equalalways " When on, all the windows are automatically made the same size 
 
 if has("autocmd")
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
+  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+  autocmd BufRead,BufNewFile Berksfile set filetype=ruby
   autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 endif
 
 nmap Q <NOP> " Disable entering Ex-Mode
 set complete-=t " don't scan tags
 
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj', 'package.json', 'Gruntfile.js']
+let g:ctrlp_by_filename = 1
 let g:ctrlp_dotfiles = 0
 
 let g:snipMate = {}
@@ -124,10 +132,8 @@ let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby-extras'
 
 set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
-set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp
+set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp,dist
 
-imap jj <Esc>
-imap hh =>
 noremap ; :
 
 

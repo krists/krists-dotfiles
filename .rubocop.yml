@@ -1,0 +1,6 @@
+StringLiterals:
+  Enabled: false
+Documentation:
+  Enabled: false
+LineLength:
+  Enabled: false
