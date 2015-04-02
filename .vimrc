@@ -12,26 +12,28 @@
  Bundle 'tpope/vim-sensible'
  Bundle 'tpope/vim-fugitive'
  Bundle 'goldfeld/vim-seek'
- Bundle 'chriskempson/base16-vim'
  Bundle 'kien/ctrlp.vim'
  Bundle 'tpope/vim-commentary'
  Bundle 'tpope/vim-endwise'
- Bundle 'kchmck/vim-coffee-script'
+ Bundle 'tpope/vim-surround'
+ Bundle 'craigemery/vim-autotag'
+ Bundle 'rking/ag.vim'
+
+ " Colorschemes
+ Bundle 'chriskempson/base16-vim'
+
+ " Syntax pluginx
+ Bundle 'vim-jp/cpp-vim'
+ Bundle 'mxw/vim-jsx'
+ Bundle 'jinfield/vim-nginx'
  Bundle 'tpope/vim-haml'
  Bundle 'digitaltoad/vim-jade'
- Bundle 'tpope/vim-surround'
- Bundle 'tsaleh/vim-matchit'
- Bundle 'othree/html5.vim'
- Bundle 'othree/xml.vim'
  Bundle 'plasticboy/vim-markdown'
- Bundle 'jinfield/vim-nginx'
- Bundle 'thoughtbot/vim-rspec'
- Bundle 'AutoTag'
- Bundle 'rking/ag.vim'
- Bundle 'tpope/vim-fireplace.git'
-
+ Bundle 'othree/xml.vim'
  Bundle 'slim-template/vim-slim.git'
- Bundle 'vim-jp/cpp-vim'
+ Bundle 'othree/html5.vim'
+ Bundle 'kchmck/vim-coffee-script'
+ Bundle 'guns/vim-clojure-static'
 
  " Snipmate and dependencies
  Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -127,12 +129,15 @@ let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj', 'packag
 let g:ctrlp_by_filename = 1
 let g:ctrlp_dotfiles = 0
 
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 let g:snipMate = {}
 let g:snipMate.scope_aliases = {}
 let g:snipMate.scope_aliases['ruby'] = 'ruby-extras'
 
 set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
-set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp,dist
+set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp,dist,tmp
 
 noremap ; :
 
@@ -178,11 +183,33 @@ nmap <Leader><S-SPACE> O<ESC>
 nmap <Leader>d jddk
 nmap <Leader>D kddj
 
-nmap <A-t> :call RunCurrentSpecFile()<CR>
-nmap <A-s> :call RunNearestSpec()<CR>
-nmap <A-l> :call RunLastSpec()<CR>
-nmap <A-a> :call RunAllSpecs()<CR>
-let g:rspec_command = "!rspec  --format progress --no-color {spec}"
+"Easier window navigation, control+letter moves in that direction
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+"Firefox-style tab selection with command+number, mac only
+map <D-1> 1gt
+map <D-2> 2gt
+map <D-3> 3gt
+map <D-4> 4gt
+map <D-5> 5gt
+map <D-6> 6gt
+map <D-7> 7gt
+map <D-8> 8gt
+map <D-9> 9gt
+map <D-0> :tablast<CR>
+imap <D-1> <esc>1gt
+imap <D-2> <esc>2gt
+imap <D-3> <esc>3gt
+imap <D-4> <esc>4gt
+imap <D-5> <esc>5gt
+imap <D-6> <esc>6gt
+imap <D-7> <esc>7gt
+imap <D-8> <esc>8gt
+imap <D-9> <esc>9gt
+imap <D-0> <esc>:tablast<CR>
 
 ca Gb Gblame
 set noeb vb t_vb= " No bells

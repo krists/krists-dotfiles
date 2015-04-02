@@ -21,6 +21,8 @@ def clear!
 end
 
 if defined?(::Rails)
+  require "logger"
+  Rails.logger = Logger.new(STDOUT)
   def c!
     clear!
     "Rails environment: " + ::Rails.env
