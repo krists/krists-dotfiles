@@ -17,7 +17,7 @@ end
 
 desc "Installs dotfiles"
 task :install => [:ensure_dependencies] do
-  %w(.bash_aliases .bashrc .gemrc .gitignore .inputrc .irbrc .rdebugrc .rspec .vimrc .gvimrc .vim .git-completion.bash .git-prompt.sh .psqlrc .railsrc .rubocop.yml .rvmrc .tmux.conf).each do |file|
+  %w(.gemrc .gitignore .inputrc .irbrc .rdebugrc .rspec .vimrc .gvimrc .vim .psqlrc .railsrc .rubocop.yml .tmux.conf).each do |file|
     FileUtils.rm_rf(File.join(ENV["HOME"], file), verbose: true)
     FileUtils.ln_sf(File.join(Dir.pwd, file), File.join(ENV["HOME"], file), verbose: true)
   end
