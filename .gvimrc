@@ -6,4 +6,4 @@ set guiheadroom=0 " The number of pixels subtracted from the screen height when 
 set cursorline
 set nocursorcolumn
 set background=dark
-colorscheme base16-flat
+colorscheme gotham

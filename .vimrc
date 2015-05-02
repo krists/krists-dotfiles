@@ -19,8 +19,11 @@
  Bundle 'craigemery/vim-autotag'
  Bundle 'rking/ag.vim'
 
+ Bundle 'chiedojohn/vim-case-convert'
+
  " Colorschemes
  Bundle 'chriskempson/base16-vim'
+ Bundle 'whatyouhide/vim-gotham'
 
  " Syntax pluginx
  Bundle 'vim-jp/cpp-vim'
@@ -56,7 +59,7 @@
 set background=dark
 
 set t_Co=256
-colorscheme smyck
+colorscheme gotham
 
 set synmaxcol=300 " Stop syntax coloring after column 300
 
@@ -184,10 +187,10 @@ nmap <Leader>d jddk
 nmap <Leader>D kddj
 
 "Easier window navigation, control+letter moves in that direction
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+" nmap <C-h> <C-w>h
+" nmap <C-j> <C-w>j
+" nmap <C-k> <C-w>k
+" nmap <C-l> <C-w>l
 
 "Firefox-style tab selection with command+number, mac only
 map <D-1> 1gt
