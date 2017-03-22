@@ -1,1 +1,1 @@
---database postgresql --skip-test-unit --skip-bundle --skip-spring
+--database postgresql --skip-bundle --skip-spring
