@@ -19,3 +19,5 @@ C-SPACE: kill-whole-line
 "\e[D": backward-char
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+"\e[3;5~": kill-word                    # C-Delete
+"\e[3;3~": kill-word                    # A-Delete
