@@ -1,5 +1,5 @@
- set nocompatible               " be iMproved
- filetype off                   " required!
+ set nocompatible
+ filetype off
 
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
@@ -45,7 +45,7 @@
  Bundle 'honza/vim-snippets'
  " ...
 
- filetype plugin indent on     " required!
+ filetype plugin indent on
  "
  " Brief help
  " :BundleList          - list configured bundles
@@ -66,6 +66,8 @@ set synmaxcol=300 " Stop syntax coloring after column 300
 if has('mouse')
   set mouse=
 endif
+
+set viminfo=""
 
 " Don’t add empty newlines at the end of files
 set binary

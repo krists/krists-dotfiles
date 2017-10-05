@@ -4,7 +4,7 @@ IRB.conf[:AUTO_INDENT]=true
 # Save History between irb sessions
 require 'irb/ext/save-history'
 IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+IRB.conf[:HISTORY_FILE] = ".irb-save-history"
 
 # Load the readline module.
 IRB.conf[:USE_READLINE] = true
