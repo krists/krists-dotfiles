@@ -1,0 +1,6 @@
+[include]
+    path = ~/.git-user-config
+[core]
+	excludesfile = ~/.gitignore
+[push]
+	default = current
