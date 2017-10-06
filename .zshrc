@@ -1,4 +1,4 @@
-export ZSH=/home/krists/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="lambda"
 
 HIST_STAMPS="yyyy-mm-dd"
