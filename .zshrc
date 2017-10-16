@@ -30,4 +30,6 @@ if [[ -f "$HOME/.rbenv/bin/rbenv" ]]; then
   eval "$(rbenv init -)"
 fi
 
-
+if [[ -f "$HOME/.aliases" ]]; then
+  source $HOME/.aliases
+fi

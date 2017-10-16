@@ -1,3 +1,6 @@
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
 alias lsports='sudo netstat -lnptu'
 
 alias gc='git commit'
