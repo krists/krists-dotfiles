@@ -1,65 +1,39 @@
- set nocompatible
- filetype off
+set nocompatible
+filetype off
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
- " let Vundle manage Vundle
- " required!
- Bundle 'gmarik/vundle'
+" My Bundles here:
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-surround'
 
- " My Bundles here:
- Bundle 'tpope/vim-sensible'
- Bundle 'tpope/vim-fugitive'
- Bundle 'goldfeld/vim-seek'
- Bundle 'kien/ctrlp.vim'
- Bundle 'tpope/vim-commentary'
- Bundle 'tpope/vim-endwise'
- Bundle 'tpope/vim-surround'
- Bundle 'craigemery/vim-autotag'
- Bundle 'rking/ag.vim'
+" Colorschemes
+Plugin 'chriskempson/base16-vim'
+Plugin 'whatyouhide/vim-gotham'
 
- Bundle 'chiedojohn/vim-case-convert'
+" Syntax pluginx
+Plugin 'vim-jp/cpp-vim'
+Plugin 'jinfield/vim-nginx'
+Plugin 'tpope/vim-haml'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'othree/xml.vim'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'othree/html5.vim'
+Plugin 'kchmck/vim-coffee-script'
 
- " Colorschemes
- Bundle 'chriskempson/base16-vim'
- Bundle 'whatyouhide/vim-gotham'
-
- " Syntax pluginx
- Bundle 'vim-jp/cpp-vim'
- Bundle 'mxw/vim-jsx'
- Bundle 'jinfield/vim-nginx'
- Bundle 'tpope/vim-haml'
- Bundle 'digitaltoad/vim-jade'
- Bundle 'plasticboy/vim-markdown'
- Bundle 'othree/xml.vim'
- Bundle 'slim-template/vim-slim.git'
- Bundle 'othree/html5.vim'
- Bundle 'kchmck/vim-coffee-script'
- Bundle 'guns/vim-clojure-static'
-
- " Snipmate and dependencies
- Bundle 'MarcWeber/vim-addon-mw-utils'
- Bundle 'tomtom/tlib_vim'
- Bundle 'garbas/vim-snipmate'
- Bundle 'honza/vim-snippets'
- " ...
-
- filetype plugin indent on
- "
- " Brief help
- " :BundleList          - list configured bundles
- " :BundleInstall(!)    - install(update) bundles
- " :BundleSearch(!) foo - search(or refresh cache first) for foo
- " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
- "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+call vundle#end()
+filetype plugin indent on
 
 set background=dark
 
 set t_Co=256
-colorscheme gotham
+colorscheme default
+
 
 set synmaxcol=300 " Stop syntax coloring after column 300
 
@@ -78,11 +52,8 @@ set noswapfile
 set nobackup
 set nowritebackup
 
-if has('persistent_undo') && exists("&undodir")
-  set undodir=$HOME/.vim/undo/
-  set undofile
-  set undolevels=500
-  set undoreload=10000
+if has('persistent_undo')
+  set noundofile
 endif
 
 set smartindent
@@ -93,10 +64,7 @@ set shiftwidth=2
 set expandtab
 
 " Line numbers
-if exists("&relativenumber")
-  set relativenumber
-  au BufReadPost * set relativenumber
-endif
+set number
 
 " Folding
 set foldmethod=indent
@@ -121,31 +89,20 @@ set equalalways " When on, all the windows are automatically made the same size 
 
 if has("autocmd")
   autocmd BufRead,BufNewFile Gemfile set filetype=ruby
-  autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
-  autocmd BufRead,BufNewFile Berksfile set filetype=ruby
   autocmd BufRead,BufNewFile *.jbuilder set filetype=ruby
 endif
 
 nmap Q <NOP> " Disable entering Ex-Mode
 set complete-=t " don't scan tags
 
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_root_markers = ['Gemfile', '.bashrc', '.git', 'project.clj', 'package.json', 'Gruntfile.js']
-let g:ctrlp_by_filename = 1
-let g:ctrlp_dotfiles = 0
 
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
-
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['ruby'] = 'ruby-extras'
 
 set wildignore+=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 set wildignore+=coverage,coverage.data,node_modules,.sass-cache,.tmp,dist,tmp
 
 noremap ; :
-
 
 " Whitespace Wizardry
 set list
@@ -189,32 +146,9 @@ nmap <Leader>d jddk
 nmap <Leader>D kddj
 
 "Easier window navigation, control+letter moves in that direction
-" nmap <C-h> <C-w>h
-" nmap <C-j> <C-w>j
-" nmap <C-k> <C-w>k
-" nmap <C-l> <C-w>l
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
 
-"Firefox-style tab selection with command+number, mac only
-map <D-1> 1gt
-map <D-2> 2gt
-map <D-3> 3gt
-map <D-4> 4gt
-map <D-5> 5gt
-map <D-6> 6gt
-map <D-7> 7gt
-map <D-8> 8gt
-map <D-9> 9gt
-map <D-0> :tablast<CR>
-imap <D-1> <esc>1gt
-imap <D-2> <esc>2gt
-imap <D-3> <esc>3gt
-imap <D-4> <esc>4gt
-imap <D-5> <esc>5gt
-imap <D-6> <esc>6gt
-imap <D-7> <esc>7gt
-imap <D-8> <esc>8gt
-imap <D-9> <esc>9gt
-imap <D-0> <esc>:tablast<CR>
-
-ca Gb Gblame
 set noeb vb t_vb= " No bells

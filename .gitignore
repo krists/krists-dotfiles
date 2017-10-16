@@ -9,7 +9,6 @@ Session.vim
 .vim/undo
 .ruby-version
 .ruby-gemset
-tags
 .DS_Store
 .idea
 .envrc
