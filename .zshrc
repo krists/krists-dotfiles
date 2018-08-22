@@ -3,7 +3,7 @@ ZSH_THEME="lambda"
 
 HIST_STAMPS="yyyy-mm-dd"
 
-plugins=(git extract)
+plugins=(git extract docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -28,6 +28,10 @@ fi
 if [[ -f "$HOME/.rbenv/bin/rbenv" ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
+fi
+
+if [[ -d "$HOME/.yarn/bin" ]]; then
+  export PATH="$HOME/.yarn/bin:$PATH"
 fi
 
 if [[ -f "$HOME/.aliases" ]]; then

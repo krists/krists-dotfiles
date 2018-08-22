@@ -2,5 +2,12 @@
     path = ~/.git-user-config
 [core]
 	excludesfile = ~/.gitignore
+	autocrlf = input
 [push]
 	default = current
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  cmd = meld "$LOCAL" "$REMOTE"
