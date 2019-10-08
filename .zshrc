@@ -27,6 +27,9 @@ fi
 
 if [[ -f "$HOME/.rbenv/bin/rbenv" ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
+fi
+
+if [ -x "$(command -v rbenv)" ]; then
   eval "$(rbenv init -)"
 fi
 
