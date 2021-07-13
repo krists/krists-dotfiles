@@ -25,6 +25,10 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH="$HOME/.bin:$PATH"
 fi
 
+if [[ -f /usr/local/bin/rbenv ]]; then
+  eval "$(rbenv init -)"
+fi
+
 if [[ -f "$HOME/.rbenv/bin/rbenv" ]]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
 fi
@@ -45,3 +49,4 @@ if [ -x "$(command -v direnv)" ]; then
   eval "$(direnv hook zsh)"
 fi
 
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"

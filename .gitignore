@@ -13,3 +13,4 @@ Session.vim
 .idea
 .envrc
 .irb-save-history
+*.gem

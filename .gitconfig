@@ -9,5 +9,9 @@
   tool = meld
 [difftool]
   prompt = false
-[difftool "meld"]
-  cmd = meld "$LOCAL" "$REMOTE"
+[alias]
+	push-with-lease = push --force-with-lease
+[merge]
+	ff = false
+[pull]
+	ff = only
