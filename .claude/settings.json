@@ -1,1 +1,12 @@
-{}
+{
+  "permissions": {
+    "allow": [
+      "Bash(ruby --version)",
+      "Bash(bundle --version)",
+      "Bash(bundle install:*)",
+      "Bash(find:*)",
+      "Bash(sort:*)",
+      "Bash(grep:*)"
+    ]
+  }
+}
