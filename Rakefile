@@ -18,6 +18,7 @@ DOTFILES = {
   ".rubocop.yml" => ".rubocop.yml",
   ".tmux.conf" => ".tmux.conf",
   ".zprofile" => ".zprofile",
+  ".zshenv" => ".zshenv",
   ".zshrc" => ".zshrc",
 }
 

@@ -16,8 +16,27 @@ if [[ -f "$HOME/.aliases" ]]; then
   source $HOME/.aliases
 fi
 
-autoload -Uz compinit
-compinit
-ulimit -n 65536
+if command -v direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
-export EDITOR=vim
+LDFLAGS=""
+CPPFLAGS=""
+PKG_CONFIG_PATH=""
+
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+  if [[ -d "$HOMEBREW_PREFIX/opt/node@22" ]]; then
+    LDFLAGS="-L$HOMEBREW_PREFIX/opt/node@22/lib $LDFLAGS"
+    CPPFLAGS="-I$HOMEBREW_PREFIX/opt/node@22/include $CPPFLAGS"
+  fi
+
+  if [[ -d "$HOMEBREW_PREFIX/opt/postgresql@18" ]]; then
+    LDFLAGS="-L$HOMEBREW_PREFIX/opt/postgresql@18/lib $LDFLAGS"
+    CPPFLAGS="-I$HOMEBREW_PREFIX/opt/postgresql@18/include $CPPFLAGS"
+    PKG_CONFIG_PATH="$HOMEBREW_PREFIX/opt/postgresql@18/lib/pkgconfig:$PKG_CONFIG_PATH"
+  fi
+fi
+
+[[ -n "$LDFLAGS" ]] && export LDFLAGS
+[[ -n "$CPPFLAGS" ]] && export CPPFLAGS
+[[ -n "$PKG_CONFIG_PATH" ]] && export PKG_CONFIG_PATH
