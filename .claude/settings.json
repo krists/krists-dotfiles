@@ -6,7 +6,9 @@
       "Bash(bundle install:*)",
       "Bash(find:*)",
       "Bash(sort:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(bin/rails:*)",
+      "Bash(bin/rubocop:*)"
     ]
   }
 }
