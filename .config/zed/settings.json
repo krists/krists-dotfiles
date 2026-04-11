@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
   "git_panel": {
     "tree_view": true,
     "sort_by_path": true,
@@ -15,6 +20,7 @@
   "session": {
     "trust_all_worktrees": true,
   },
+  "restore_on_startup": "launchpad",
   "base_keymap": "JetBrains",
   "ui_font_size": 16,
   "buffer_font_size": 15,
@@ -23,6 +29,28 @@
     "light": "One Light",
     "dark": "Ayu Dark",
   },
+  "title_bar": {
+    "show_sign_in": false,
+  },
+  "gutter": {
+    "runnables": false,
+    "breakpoints": false,
+    "min_line_number_digits": 3,
+  },
+  "inlay_hints": {
+    "enabled": false,
+  },
+  "project_panel": {
+    "drag_and_drop": true,
+    "hide_hidden": false,
+  },
+  "collaboration_panel": {
+    "button": false,
+  },
+  "agent": {
+    "enabled": false,
+  },
+  "disable_ai": true,
   "lsp": {
     "ruby-lsp": {
       "initialization_options": {
