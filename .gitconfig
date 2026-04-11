@@ -5,12 +5,8 @@
 	autocrlf = input
 [push]
 	default = current
-[diff]
-  tool = meld
-[difftool]
-  prompt = false
 [alias]
-	push-with-lease = push --force-with-lease
+	puff = push --force-with-lease
 [merge]
 	ff = false
 [pull]

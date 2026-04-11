@@ -1,1 +1,1 @@
---skip-bundle --skip-spring
+--skip-bundle --skip-spring --skip-action-mailer --skip-action-mailbox --skip-action-text --skip-bootsnap --skip-thruster --skip-brakeman --skip-bundler-audit --skip-ci --skip-kamal --no-devcontainer
