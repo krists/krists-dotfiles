@@ -4,6 +4,7 @@ require "digest"
 # Maps source path (relative to repo) => target path (relative to $HOME)
 DOTFILES = {
   ".aliases" => ".aliases",
+  ".claude/CLAUDE.md" => ".claude/CLAUDE.md",
   ".claude/settings.json" => ".claude/settings.json",
   ".config/zed/keymap.json" => ".config/zed/keymap.json",
   ".config/zed/settings.json" => ".config/zed/settings.json",
