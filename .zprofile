@@ -20,8 +20,13 @@ if [[ -f /usr/local/bin/direnv ]]; then
     eval "$(direnv hook zsh)"
 fi
 
-export PATH="/usr/local/opt/node@22/bin:$PATH"
-export PATH="/usr/local/opt/postgresql@18/bin:$PATH"
+if [[ -d "/usr/local/opt/node@22/bin" ]]; then
+  export PATH="/usr/local/opt/node@22/bin:$PATH"
+fi
+
+if [[ -d "/usr/local/opt/postgresql@18/bin" ]]; then
+  export PATH="/usr/local/opt/postgresql@18/bin:$PATH"
+fi
 
 if [[ -d "$HOME/.local/bin" ]]; then
   export PATH="$HOME/.local/bin:$PATH"
@@ -31,6 +36,21 @@ if [[ -d "$HOME/.bin" ]]; then
   export PATH="$HOME/.bin:$PATH"
 fi
 
-export LDFLAGS="-L/usr/local/opt/node@22/lib -L/usr/local/opt/postgresql@18/lib"
-export CPPFLAGS="-I/usr/local/opt/node@22/include -I/usr/local/opt/postgresql@18/include"
-export PKG_CONFIG_PATH="/usr/local/opt/postgresql@18/lib/pkgconfig"
+LDFLAGS=""
+CPPFLAGS=""
+PKG_CONFIG_PATH=""
+
+if [[ -d "/usr/local/opt/node@22" ]]; then
+  LDFLAGS="-L/usr/local/opt/node@22/lib $LDFLAGS"
+  CPPFLAGS="-I/usr/local/opt/node@22/include $CPPFLAGS"
+fi
+
+if [[ -d "/usr/local/opt/postgresql@18" ]]; then
+  LDFLAGS="-L/usr/local/opt/postgresql@18/lib $LDFLAGS"
+  CPPFLAGS="-I/usr/local/opt/postgresql@18/include $CPPFLAGS"
+  PKG_CONFIG_PATH="/usr/local/opt/postgresql@18/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+[[ -n "$LDFLAGS" ]] && export LDFLAGS
+[[ -n "$CPPFLAGS" ]] && export CPPFLAGS
+[[ -n "$PKG_CONFIG_PATH" ]] && export PKG_CONFIG_PATH
