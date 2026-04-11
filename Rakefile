@@ -1,9 +1,23 @@
 require "fileutils"
 require "digest"
 
-DOTFILES = %w[.gemrc .gitignore .inputrc .irbrc .rdebugrc .rspec .railsrc .tmux.conf .zprofile .zshrc .aliases .gitconfig].freeze
+DOTFILES = %w[
+  .aliases
+  .gemrc
+  .gitconfig
+  .gitignore
+  .inputrc
+  .irbrc
+  .railsrc
+  .rdebugrc
+  .rspec
+  .rubocop.yml
+  .tmux.conf
+  .zprofile
+  .zshrc
+].freeze
 
-desc "Installs dotfiles"
+desc "Installs dotfiles by creating symlinks"
 task install: [] do
   conflict_suffix = Time.now.to_i
   DOTFILES.each do |file|
