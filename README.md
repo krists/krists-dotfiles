@@ -1,6 +1,6 @@
 Dotfiles
 ========
-Configuration files for zsh, git, irb, gem, tmux, rubocop, and Zed.
+Configuration files for zsh, git, irb, gem, tmux, rubocop, Zed, and Claude Code.
 
 ## Install
 
