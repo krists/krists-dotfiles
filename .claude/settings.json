@@ -4,6 +4,7 @@
       "Bash(ruby --version)",
       "Bash(bundle --version)",
       "Bash(bundle install:*)",
+      "Bash(ruby -c:*)",
       "Bash(find:*)",
       "Bash(sort:*)",
       "Bash(grep:*)",
