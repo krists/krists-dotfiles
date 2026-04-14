@@ -66,5 +66,8 @@
     "Ruby": {
       "language_servers": ["ruby-lsp", "rubocop"],
     },
+    "HTML+ERB": {
+      "language_servers": ["herb", "!ruby-lsp", "..."],
+    },
   },
 }
